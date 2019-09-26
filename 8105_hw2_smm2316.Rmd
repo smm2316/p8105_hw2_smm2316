@@ -1,0 +1,12 @@
+---
+title: "Homework 2"
+author: "Sarah McLarnan"
+date: 2019-09-26
+output: github_document
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+
