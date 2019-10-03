@@ -40,6 +40,6 @@ precip_tidy =
   bind_rows(precip_2017, precip_2018) %>%
   mutate(month = month.name[month])
 ```
-
+There are `r nrow(precip_tidy)` observations in the precipitation data set and `r nrow(water_wheel)` observations in the water wheel data set. The water wheel dataset has information on the dumpster materials were collected from, the date of collection, the amount of materail collected in various categories (i.e. `plastic_bottles`, `chip_bages`, etc.) and how many homes were powered with the materials collected. The precipitation data includes columns for the year, month and total precipitation. The total precipitation in 2018 was `r sum(pull(filter(precip_tidy, year == "2018"), total))` inches. In 2017 the median number of sports balls in dumpsters was `r median(pull(filter(water_wheel, year == 2017), sports_balls))`. 
 
 
