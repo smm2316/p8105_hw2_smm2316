@@ -57,3 +57,17 @@ pols_month =
   select(-prez_gop, -prez_dem, -day)
 ```
 
+```{r problem_2_snp}
+snp = 
+  read_csv("./data/snp.csv") %>%
+  separate(date, into = c("month", "day", "year")) %>%
+  select (year, month, close, -day) %>%
+  mutate(year = as.integer(year),
+  month = as.integer(month),
+  month = month.name[month])
+```
+
+
+
+
+
