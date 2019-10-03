@@ -66,6 +66,24 @@ snp =
   month = as.integer(month),
   month = month.name[month])
 ```
+```{r problem_2_unemployment}
+unemployment =
+  read_csv("./data/unemployment.csv") %>%
+  janitor::clean_names()
+  unemployment = pivot_longer(unemployment, jan:dec, names_to = "month", values_to = "prec_unemployment") %>%
+  mutate(month = recode(month, 
+                        "jan" = "January", 
+                        "feb" = "February", 
+                        "mar" = "March", 
+                        "apr" = "April", 
+                        "jun" = "June", 
+                        "jul" = "July", 
+                        "aug" = "August", 
+                        "sep" = "September", 
+                        "oct" = "October", 
+                        "nov" = "November", 
+                        "dec" = "December"))
+```
 
 
 
