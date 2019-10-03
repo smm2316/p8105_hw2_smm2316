@@ -1,7 +1,7 @@
 ---
 title: "Homework 2"
 author: "Sarah McLarnan"
-date: 2019-09-26
+date: 2019-10-03
 output: github_document
 ---
 
@@ -12,7 +12,7 @@ library(readxl)
 ```
 
 ### Problem 1 
-```{r problem_1}
+```{r problem_1_water_whell}
 water_wheel = 
   read_excel("./data/Trash-Wheel-Collection-Totals-8-6-19.xlsx", sheet = 1, skip = 1) %>%
   janitor::clean_names() %>%
@@ -20,5 +20,21 @@ water_wheel =
   drop_na(dumpster) %>%
   mutate(sports_balls = as.integer(round(sports_balls)))
 ```
+```{r problem_1_precip_2017}
+precip_2017 = 
+  read_excel("./data/Trash-Wheel-Collection-Totals-8-6-19.xlsx", sheet = 5, skip = 1) %>%
+  janitor::clean_names() %>%
+  drop_na(month) %>%
+  mutate(year = 2017)
+```
+
+```{r problem_1_precip_2018}
+precip_2018 =
+  read_excel("./data/Trash-Wheel-Collection-Totals-8-6-19.xlsx", sheet = 6, skip = 1) %>%
+  janitor::clean_names() %>%
+  drop_na(month) %>%
+  mutate(year = 2018)
+```
+
 
 
