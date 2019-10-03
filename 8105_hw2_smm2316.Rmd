@@ -89,7 +89,19 @@ pols_snp = left_join(pols_month, snp, by = c("year", "month"))
 pols_snp_une = left_join(pols_snp, unemployment, by = c("year", "month"))
 ```
 
-
+### Problem 3
+```{r}
+baby_names =
+  read_csv("./data/Popular_Baby_Names.csv") %>%
+  janitor::clean_names() %>%
+  distinct() %>%
+  mutate(gender = tolower(gender), 
+        ethnicity = tolower(ethnicity),
+        ethnicity = recode(ethnicity, 
+                       "asian and pacific islander" = "asian and paci", 
+                       "black non hispanic" = "black non hisp", 
+                       "white non hispanic" = "white non hisp"))
+```
 
 
 
