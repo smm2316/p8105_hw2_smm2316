@@ -7,6 +7,18 @@ output: github_document
 
 ```{r setup, include=FALSE}
 library(tidyverse)
+library(dplyr)
+library(readxl)
+```
+
+### Problem 1 
+```{r problem_1}
+water_wheel = 
+  read_excel("./data/Trash-Wheel-Collection-Totals-8-6-19.xlsx", sheet = 1, skip = 1) %>%
+  janitor::clean_names() %>%
+  select(-x15, -x16, -x17) %>%
+  drop_na(dumpster) %>%
+  mutate(sports_balls = as.integer(round(sports_balls)))
 ```
 
 
