@@ -12,7 +12,7 @@ library(readxl)
 ```
 
 ### Problem 1 
-```{r problem_1_water_whell}
+```{r problem_1_water_wheel, message = FALSE}
 water_wheel = 
   read_excel("./data/Trash-Wheel-Collection-Totals-8-6-19.xlsx", sheet = 1, skip = 1) %>%
   janitor::clean_names() %>%
@@ -34,6 +34,11 @@ precip_2018 =
   janitor::clean_names() %>%
   drop_na(month) %>%
   mutate(year = 2018)
+```
+```{r problem_1_precip_tidy}
+precip_tidy =
+  bind_rows(precip_2017, precip_2018) %>%
+  mutate(month = month.name[month])
 ```
 
 
