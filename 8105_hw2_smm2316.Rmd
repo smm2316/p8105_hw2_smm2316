@@ -116,6 +116,12 @@ popular_male = filter(baby_names, gender == "male", rank == "1") %>%
 
 knitr::kable(popular_male)
 ```
+```{r problem_3_white_males_graph}
+white_males_2016 = filter(baby_names, gender == "male" & year_of_birth == "2016" & ethnicity == "white non hisp")
+
+ggplot(white_males_2016, aes(x = rank, y = count)) +
+  geom_point()
+```
 
 
 
