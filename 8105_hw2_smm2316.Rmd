@@ -102,12 +102,19 @@ baby_names =
                        "black non hispanic" = "black non hisp", 
                        "white non hispanic" = "white non hisp"))
 ```
-```{r}
+```{r problem_3_olivia}
 olivia = filter(baby_names, childs_first_name == "Olivia") %>%
   select(-gender, -childs_first_name, -count) %>%
   pivot_wider(names_from = "year_of_birth", values_from = "rank")
 
 knitr::kable(olivia)
+```
+```{r}
+popular_male = filter(baby_names, gender == "male", rank == "1") %>%
+  select(-gender, -rank, -count) %>%
+  pivot_wider(names_from = "year_of_birth", values_from = "childs_first_name")
+
+knitr::kable(popular_male)
 ```
 
 
