@@ -102,6 +102,15 @@ baby_names =
                        "black non hispanic" = "black non hisp", 
                        "white non hispanic" = "white non hisp"))
 ```
+```{r}
+olivia = filter(baby_names, childs_first_name == "Olivia") %>%
+  select(-gender, -childs_first_name, -count) %>%
+  pivot_wider(names_from = "year_of_birth", values_from = "rank")
+
+knitr::kable(olivia)
+```
+
+
 
 
 
